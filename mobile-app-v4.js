@@ -1,10 +1,10 @@
 ﻿const languageOptions = [
-  { code: "ko", label: "한국어" },
-  { code: "en", label: "English" },
-  { code: "zh", label: "中文" },
-  { code: "vi", label: "Tiếng Việt" },
-  { code: "ru", label: "Русский" },
-  { code: "uz", label: "O'zbekcha" }
+  { code: "ko", label: "\uD55C\uAD6D\uC5B4", subtitle: "Korean" },
+  { code: "en", label: "English", subtitle: "English" },
+  { code: "zh", label: "\u4E2D\u6587", subtitle: "Chinese" },
+  { code: "vi", label: "Ti\u1EBFng Vi\u1EC7t", subtitle: "Vietnamese" },
+  { code: "ru", label: "\u0420\u0443\u0441\u0441\u043A\u0438\u0439", subtitle: "Russian" },
+  { code: "uz", label: "O'zbekcha", subtitle: "Uzbek" }
 ];
 
 const config = window.bridgeHelpV4Config || {};
@@ -37,6 +37,12 @@ const qrUi = config.qrUi || {
   title: L("QR로 모바일에서 열기", "Open on mobile with QR", "用二维码在手机打开", "Mo tren dien thoai bang QR", "Otkryt na telefone po QR", "QR orqali telefonda ochish"),
   copy: L("휴대폰 카메라로 스캔하면 모바일 프로토타입이 바로 열립니다.", "Scan with your phone camera to open the mobile prototype.", "用手机相机扫描后即可打开移动版原型。", "Quet bang camera dien thoai de mo ngay ban mau di dong.", "Skanirovat kameroy telefona, chtoby srazu otkryt mobilnyy prototip.", "Telefon kamerasi bilan skaner qilsangiz, mobil prototip darhol ochiladi."),
   fallback: L("이 브라우저에서는 QR 미리보기를 표시하지 못합니다.", "This browser cannot preview the QR code.", "此浏览器无法预览二维码。", "Trinh duyet nay khong the hien thi ma QR.", "Etoy brauzer ne mozhet pokazat QR-kod.", "Bu brauzer QR kodni ko'rsata olmaydi.")
+};
+
+const languageGateUi = {
+  eyebrow: "BridgeHelp",
+  title: "\uC5B8\uC5B4\uB97C \uC120\uD0DD\uD558\uC138\uC694\nChoose your language",
+  copy: "\uC6D0\uD558\uB294 \uC5B8\uC5B4\uB97C \uB204\uB974\uBA74 \uBC14\uB85C \uC2DC\uC791\uB429\uB2C8\uB2E4.\nTap a language to enter the app."
 };
 
 const ui = {
@@ -114,12 +120,6 @@ const ui = {
   }
 };
 const overlays = {
-  splashEyebrow: L("BridgeHelp", "BridgeHelp", "BridgeHelp"),
-  splashTitle: L("문제를 말하면\n바로 연결", "Speak up\nGet connected", "说出问题\n马上连接", "Nói ra\nKết nối", "Скажите\nИ свяжитесь", "Ayting\nva bog'laning"),
-  splashSkip: L("건너뛰기", "Skip", "跳过", "Bỏ qua", "Пропустить", "O'tkazish"),
-  onboardingEyebrow: L("Quick Start", "Quick Start", "快速开始", "Bắt đầu nhanh", "Быстрый старт", "Tez boshlash"),
-  onboardingTitle: L("3단계로 사용", "Use in 3 steps", "3步使用", "3 bước", "3 шага", "3 qadam"),
-  onboardingStart: L("시작하기", "Start", "开始", "Bắt đầu", "Начать", "Boshlash"),
   loadingQuestionTitle: L("도움 정리 중", "Preparing help", "正在整理帮助"),
   loadingQuestionDesc: L("지금 필요한 행동과 연락처를 고르고 있어요.", "We are preparing actions and contacts.", "正在整理行动和联系方式。"),
   loadingDocumentTitle: L("문서 해석 중", "Reading document", "正在解读文档"),
@@ -220,12 +220,6 @@ const samplePrompts = [
   { scenario: "visa", text: L("비자 연장은 어떻게 하나요?", "How do I extend my visa?", "签证延期怎么办？") }
 ];
 
-const onboardingData = [
-  { title: L("문제 입력", "Enter the problem", "输入问题"), body: L("기관 이름이 아니라 지금 겪는 문제부터 말하면 됩니다.", "Start with the problem, not the institution name.", "不用先知道机构名称，先说出你遇到的问题即可。") },
-  { title: L("맞춤 안내", "Matched summary", "匹配摘要"), body: L("지금 할 일과 전화할 곳을 짧게 보여줍니다.", "See next steps and who to call in one place.", "会简短显示现在该做什么以及该联系谁。") },
-  { title: L("사진 해석", "Read by photo", "照片解读"), body: L("문서를 올리면 요약과 해야 할 일을 같이 정리합니다.", "Upload a notice to get a summary and to-do list.", "上传文档后可获得摘要和待办事项。") }
-];
-
 const emergencyQuickCalls = [
   { title: L("긴급 신고", "Emergency", "紧急报警"), number: "112", dial: "112", urgent: true },
   { title: L("응급 의료", "Medical", "医疗急救"), number: "119", dial: "119" },
@@ -244,7 +238,7 @@ const phraseData = [
 
 const appState = {
   currentTab: "home",
-  bootState: "splash",
+  bootState: "language",
   selectedLanguage: "ko",
   selectedScenario: "work",
   selectedDocument: "school",
@@ -266,9 +260,8 @@ const elements = {
   resultsLabel: document.getElementById("results-label"), resultsTitle: document.getElementById("results-title"), resultsEditButton: document.getElementById("results-edit-button"), resultsBadge: document.getElementById("results-badge"), resultsSummary: document.getElementById("results-summary"), actionsTitle: document.getElementById("actions-title"), actionsSubtitle: document.getElementById("actions-subtitle"), actionsList: document.getElementById("actions-list"), contactsTitle: document.getElementById("contacts-title"), contactsSubtitle: document.getElementById("contacts-subtitle"), contactStack: document.getElementById("contact-stack"), notesTitle: document.getElementById("notes-title"), notesSubtitle: document.getElementById("notes-subtitle"), notesList: document.getElementById("notes-list"),
   documentLabel: document.getElementById("document-label"), documentTitle: document.getElementById("document-title"), documentBackButton: document.getElementById("document-back-button"), documentKindTitle: document.getElementById("document-kind-title"), documentCurrent: document.getElementById("document-current"), documentRow: document.getElementById("document-row"), uploadTitle: document.getElementById("upload-title"), uploadStatus: document.getElementById("upload-status"), uploadButtonLabel: document.getElementById("upload-button-label"), documentFile: document.getElementById("document-file-v4"), documentSubmit: document.getElementById("document-submit"), docSummaryTitle: document.getElementById("doc-summary-title"), docSummary: document.getElementById("doc-summary"), docSimpleTitle: document.getElementById("doc-simple-title"), docSimple: document.getElementById("doc-simple"), docActionsTitle: document.getElementById("doc-actions-title"), docActions: document.getElementById("doc-actions"),
   emergencyLabel: document.getElementById("emergency-label"), emergencyTitle: document.getElementById("emergency-title"), privacyButton: document.getElementById("privacy-button"), emergencyGrid: document.getElementById("emergency-grid"), phraseTitle: document.getElementById("phrase-title"), phraseSubtitle: document.getElementById("phrase-subtitle"), phraseGrid: document.getElementById("phrase-grid"),
-  splashOverlay: document.getElementById("splash-overlay"), splashEyebrow: document.getElementById("splash-eyebrow"), splashTitle: document.getElementById("splash-title"), splashSkip: document.getElementById("splash-skip"), onboardingOverlay: document.getElementById("onboarding-overlay"), onboardingEyebrow: document.getElementById("onboarding-eyebrow"), onboardingTitle: document.getElementById("onboarding-title"), onboardingList: document.getElementById("onboarding-list"), onboardingStart: document.getElementById("onboarding-start"), loadingOverlay: document.getElementById("loading-overlay"), loadingTitle: document.getElementById("loading-title"), loadingDescription: document.getElementById("loading-description"), privacyOverlay: document.getElementById("privacy-overlay"), privacyEyebrow: document.getElementById("privacy-eyebrow"), privacyTitle: document.getElementById("privacy-title"), privacyReturn: document.getElementById("privacy-return"), callOverlay: document.getElementById("call-overlay"), callModalLabel: document.getElementById("call-modal-label"), callModalNumber: document.getElementById("call-modal-number"), callModalName: document.getElementById("call-modal-name"), callConfirm: document.getElementById("call-confirm"), callSave: document.getElementById("call-save"), callCancel: document.getElementById("call-cancel"), infoOverlay: document.getElementById("info-overlay"), infoTitle: document.getElementById("info-title"), infoBody: document.getElementById("info-body"), infoClose: document.getElementById("info-close"), toast: document.getElementById("toast-v4")
+  languageOverlay: document.getElementById("language-overlay"), languageGateEyebrow: document.getElementById("language-gate-eyebrow"), languageGateTitle: document.getElementById("language-gate-title"), languageGateCopy: document.getElementById("language-gate-copy"), languageGateList: document.getElementById("language-gate-list"), loadingOverlay: document.getElementById("loading-overlay"), loadingTitle: document.getElementById("loading-title"), loadingDescription: document.getElementById("loading-description"), privacyOverlay: document.getElementById("privacy-overlay"), privacyEyebrow: document.getElementById("privacy-eyebrow"), privacyTitle: document.getElementById("privacy-title"), privacyReturn: document.getElementById("privacy-return"), callOverlay: document.getElementById("call-overlay"), callModalLabel: document.getElementById("call-modal-label"), callModalNumber: document.getElementById("call-modal-number"), callModalName: document.getElementById("call-modal-name"), callConfirm: document.getElementById("call-confirm"), callSave: document.getElementById("call-save"), callCancel: document.getElementById("call-cancel"), infoOverlay: document.getElementById("info-overlay"), infoTitle: document.getElementById("info-title"), infoBody: document.getElementById("info-body"), infoClose: document.getElementById("info-close"), toast: document.getElementById("toast-v4")
 };
-let splashTimer = null;
 let analysisTimer = null;
 let toastTimer = null;
 
@@ -440,13 +433,14 @@ function renderEmergency() {
   elements.phraseGrid.innerHTML = phraseData.map((item, index) => `<button class="phrase-button" data-phrase-index="${index}">${t(item)}</button>`).join("");
 }
 function renderOverlays() {
-  elements.splashEyebrow.textContent = t(overlays.splashEyebrow);
-  elements.splashTitle.textContent = t(overlays.splashTitle);
-  elements.splashSkip.textContent = t(overlays.splashSkip);
-  elements.onboardingEyebrow.textContent = t(overlays.onboardingEyebrow);
-  elements.onboardingTitle.textContent = t(overlays.onboardingTitle);
-  elements.onboardingStart.textContent = t(overlays.onboardingStart);
-  elements.onboardingList.innerHTML = onboardingData.map((item) => `<article class="onboarding-item"><strong>${t(item.title)}</strong><p>${t(item.body)}</p></article>`).join("");
+  elements.languageGateEyebrow.textContent = languageGateUi.eyebrow;
+  elements.languageGateTitle.textContent = languageGateUi.title;
+  elements.languageGateTitle.style.whiteSpace = "pre-line";
+  elements.languageGateCopy.textContent = languageGateUi.copy;
+  elements.languageGateCopy.style.whiteSpace = "pre-line";
+  elements.languageGateList.innerHTML = languageOptions.map((item) =>
+    `<button class="language-gate-button" data-gate-language="${item.code}"><strong>${item.label}</strong><span>${item.subtitle}</span></button>`
+  ).join("");
   elements.loadingTitle.textContent = appState.analysisState === "question" ? t(overlays.loadingQuestionTitle) : t(overlays.loadingDocumentTitle);
   elements.loadingDescription.textContent = appState.analysisState === "question" ? t(overlays.loadingQuestionDesc) : t(overlays.loadingDocumentDesc);
   elements.privacyEyebrow.textContent = t(overlays.privacyEyebrow);
@@ -466,8 +460,7 @@ function renderOverlays() {
     elements.infoBody.textContent = appState.activeSheet.body;
     elements.infoBody.style.whiteSpace = "pre-line";
   }
-  toggleHidden(elements.splashOverlay, appState.bootState !== "splash");
-  toggleHidden(elements.onboardingOverlay, appState.bootState !== "onboarding");
+  toggleHidden(elements.languageOverlay, appState.bootState !== "language");
   toggleHidden(elements.loadingOverlay, appState.analysisState === "idle");
   toggleHidden(elements.privacyOverlay, !appState.isPrivacyMode);
   toggleHidden(elements.callOverlay, !(appState.activeSheet && appState.activeSheet.type === "call"));
@@ -483,13 +476,6 @@ function render() {
   renderDocument();
   renderEmergency();
   renderOverlays();
-}
-
-function startSplashTimer() {
-  clearTimeout(splashTimer);
-  splashTimer = window.setTimeout(() => {
-    if (appState.bootState === "splash") setState({ bootState: "onboarding" });
-  }, 1300);
 }
 
 function runQuestionFlow() {
@@ -513,6 +499,8 @@ function runDocumentFlow() {
 document.addEventListener("click", async (event) => {
   const tab = event.target.closest("[data-tab]");
   if (tab) return void setState({ currentTab: tab.dataset.tab, activeSheet: null });
+  const gate = event.target.closest("[data-gate-language]");
+  if (gate) return void setState({ selectedLanguage: gate.dataset.gateLanguage, bootState: "ready", currentTab: "home", activeSheet: null, isPrivacyMode: false });
   const lang = event.target.closest("[data-language]");
   if (lang) {
     setState({ selectedLanguage: lang.dataset.language });
@@ -549,8 +537,6 @@ elements.documentFile.addEventListener("change", (event) => {
 });
 elements.questionSubmit.addEventListener("click", runQuestionFlow);
 elements.documentSubmit.addEventListener("click", runDocumentFlow);
-elements.splashSkip.addEventListener("click", () => { clearTimeout(splashTimer); setState({ bootState: "onboarding" }); });
-elements.onboardingStart.addEventListener("click", () => setState({ bootState: "ready" }));
 elements.privacyButton.addEventListener("click", () => setState({ isPrivacyMode: true, activeSheet: null }));
 elements.privacyReturn.addEventListener("click", () => setState({ isPrivacyMode: false }));
 elements.callConfirm.addEventListener("click", () => {
@@ -570,5 +556,4 @@ elements.callCancel.addEventListener("click", () => setState({ activeSheet: null
 elements.infoClose.addEventListener("click", () => setState({ activeSheet: null }));
 
 render();
-startSplashTimer();
 

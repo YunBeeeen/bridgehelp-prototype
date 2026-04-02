@@ -692,6 +692,56 @@ textarea {
   background: var(--surface-strong);
 }
 
+.language-gate {
+  width: min(100%, 23rem);
+  border-radius: 30px;
+  background:
+    linear-gradient(180deg, rgba(255, 252, 247, 0.98) 0%, rgba(250, 244, 237, 0.98) 100%);
+  box-shadow: 0 26px 60px rgba(16, 32, 34, 0.18);
+}
+
+.language-gate h2 {
+  white-space: pre-line;
+}
+
+.language-gate-copy {
+  margin: 0.7rem 0 0;
+  color: var(--muted);
+  line-height: 1.55;
+  white-space: pre-line;
+}
+
+.language-gate-list {
+  display: grid;
+  gap: 0.72rem;
+  margin-top: 1rem;
+}
+
+.language-gate-button {
+  width: 100%;
+  padding: 1rem 1.05rem;
+  border-radius: 22px;
+  background: rgba(255, 255, 255, 0.94);
+  border: 1px solid rgba(31, 42, 44, 0.08);
+  text-align: left;
+  box-shadow: 0 12px 24px rgba(18, 32, 34, 0.06);
+}
+
+.language-gate-button strong,
+.language-gate-button span {
+  display: block;
+}
+
+.language-gate-button strong {
+  font-size: 1.08rem;
+}
+
+.language-gate-button span {
+  margin-top: 0.26rem;
+  color: var(--muted);
+  font-size: 0.92rem;
+}
+
 .splash-card {
   text-align: center;
   color: #fffaf2;
@@ -799,6 +849,7 @@ textarea {
 .side-link:hover,
 .ghost-button:hover,
 .chip-button:hover,
+.language-gate-button:hover,
 .tab-button:hover,
 .category-button:hover,
 .primary-button:hover,
@@ -919,6 +970,16 @@ textarea {
       calc(env(safe-area-inset-top, 0px) + 1rem)
       1rem
       calc(env(safe-area-inset-bottom, 0px) + 1rem);
+  }
+
+  .language-gate {
+    width: 100%;
+    min-height: calc(100dvh - env(safe-area-inset-top, 0px) - env(safe-area-inset-bottom, 0px) - 2rem);
+    padding: 1.35rem;
+    border-radius: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
   }
 }
 
