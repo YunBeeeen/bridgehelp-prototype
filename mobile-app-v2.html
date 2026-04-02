@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BridgeHelp Mobile V2</title>
+  <link rel="stylesheet" href="mobile-app-v2.css">
+</head>
+<body>
+  <div class="backdrop backdrop-sun"></div>
+  <div class="backdrop backdrop-teal"></div>
+
+  <main class="v2-layout">
+    <aside class="context-panel">
+      <p class="eyebrow">9:16 App Prototype V2</p>
+      <h1>BridgeHelp Mobile Flow</h1>
+      <p class="context-copy">
+        발표용 시연에 맞춰 앱처럼 보이는 상태 화면과 흐름을 강화한 버전입니다.
+        기존 웹형과 기존 모바일형은 그대로 두고, 이 V2에서 실제 앱 같은 감각을 더 보여줍니다.
+      </p>
+
+      <div class="feature-cluster">
+        <article class="feature-pill">
+          <strong>스플래시 + 온보딩</strong>
+          <span>처음 진입 흐름을 앱처럼 설계</span>
+        </article>
+        <article class="feature-pill">
+          <strong>AI 분석 상태</strong>
+          <span>질문과 문서 해석에 로딩 단계 추가</span>
+        </article>
+        <article class="feature-pill">
+          <strong>바텀 시트</strong>
+          <span>기관 카드 액션을 앱답게 확장</span>
+        </article>
+      </div>
+
+      <div class="entry-links">
+        <a class="entry-link" href="index.html">기존 웹형 보기</a>
+        <a class="entry-link" href="mobile-app.html">기존 모바일형 보기</a>
+      </div>
+    </aside>
+
+    <section class="phone-stage" aria-label="BridgeHelp 모바일 앱 V2">
+      <div class="phone-frame">
+        <div class="phone-hardware">
+          <div class="speaker-slot"></div>
+        </div>
+
+        <div class="phone-status">
+          <span>BridgeHelp</span>
+          <span>09:41</span>
+          <span>100%</span>
+        </div>
+
+        <div class="phone-surface">
+          <section class="tab-screen is-active" data-tab-screen="home">
+            <header class="screen-header">
+              <div>
+                <p class="screen-tag">홈</p>
+                <h2>지금 어떤 도움이 필요하세요?</h2>
+              </div>
+              <button class="ghost-button" data-go-tab="emergency">긴급</button>
+            </header>
+
+            <div class="hero-card">
+              <p>기관 이름을 몰라도 괜찮습니다.</p>
+              <strong>지금 겪는 문제를 말하면 바로 다음 행동과 연결 기관을 정리해 드립니다.</strong>
+            </div>
+
+            <section class="surface-card compact-card">
+              <div class="card-head">
+                <h3>언어 선택</h3>
+                <span id="selected-language-text">한국어</span>
+              </div>
+              <div class="chip-row" id="language-row">
+                <button class="chip-button is-selected" data-language="한국어">한국어</button>
+                <button class="chip-button" data-language="English">English</button>
+                <button class="chip-button" data-language="中文">中文</button>
+                <button class="chip-button" data-language="Tiếng Việt">Tiếng Việt</button>
+                <button class="chip-button" data-language="Русский">Русский</button>
+                <button class="chip-button" data-language="O'zbekcha">O'zbekcha</button>
+              </div>
+            </section>
+
+            <section class="surface-card">
+              <div class="card-head">
+                <h3>문제 선택</h3>
+                <span id="selected-scenario-text">일자리·노동</span>
+              </div>
+              <div class="scenario-list" id="scenario-list">
+                <button class="scenario-card is-selected" data-scenario="work">
+                  <span>일자리·노동</span>
+                  <small>월급, 근로계약, 퇴직금</small>
+                </button>
+                <button class="scenario-card" data-scenario="visa">
+                  <span>비자·출입국</span>
+                  <small>연장, 등록, 체류 절차</small>
+                </button>
+                <button class="scenario-card" data-scenario="health">
+                  <span>병원·건강</span>
+                  <small>진료, 검사, 준비 서류</small>
+                </button>
+                <button class="scenario-card" data-scenario="education">
+                  <span>아이 학교·교육</span>
+                  <small>가정통신문, 준비물, 일정</small>
+                </button>
+                <button class="scenario-card" data-scenario="housing">
+                  <span>주거·생활</span>
+                  <small>주거 계약, 생활 지원, 행정</small>
+                </button>
+                <button class="scenario-card emergency-card" data-scenario="emergency">
+                  <span>긴급 도움</span>
+                  <small>폭력, 응급, 즉시 연결</small>
+                </button>
+              </div>
+            </section>
+
+            <section class="surface-card">
+              <div class="card-head">
+                <h3>자유 질문 입력</h3>
+                <span>문제부터 말하기</span>
+              </div>
+              <label class="field-label" for="question-input-v2">지금 겪는 문제</label>
+              <textarea id="question-input-v2" rows="4" placeholder="예: 월급을 못 받았어요"></textarea>
+              <div class="chip-row" id="question-samples">
+                <button class="chip-button sample-button">월급을 못 받았어요</button>
+                <button class="chip-button sample-button">아이 학교 준비물이 뭔지 모르겠어요</button>
+                <button class="chip-button sample-button">외국인등록 연장하려면 뭐가 필요해요?</button>
+              </div>
+              <div class="action-row">
+                <button class="primary-button" id="question-analyze-button">AI 도움 정리 보기</button>
+              </div>
+            </section>
+          </section>
+
+          <section class="tab-screen" data-tab-screen="results">
+            <header class="screen-header">
+              <div>
+                <p class="screen-tag">결과</p>
+                <h2>당신에게 맞는 도움 정리</h2>
+              </div>
+              <button class="ghost-button" data-go-tab="home">질문 수정</button>
+            </header>
+
+            <section class="summary-card">
+              <span class="summary-badge">AI 요약</span>
+              <h3 id="results-summary"></h3>
+              <p id="results-context"></p>
+            </section>
+
+            <section class="surface-card result-card" data-result-card>
+              <div class="card-head">
+                <h3>지금 해야 할 일</h3>
+                <span>오늘 바로 시작</span>
+              </div>
+              <ul class="ordered-list" id="results-action-list"></ul>
+            </section>
+
+            <section class="surface-card result-card" data-result-card>
+              <div class="card-head">
+                <h3>연결 가능한 기관</h3>
+                <span>전화·운영시간·지도</span>
+              </div>
+              <div class="agency-stack" id="results-agency-stack"></div>
+            </section>
+
+            <section class="surface-card result-card" data-result-card>
+              <div class="card-head">
+                <h3>추가 안내</h3>
+                <span>주의사항과 팁</span>
+              </div>
+              <ul class="info-list" id="results-extra-list"></ul>
+            </section>
+          </section>
+
+          <section class="tab-screen" data-tab-screen="document">
+            <header class="screen-header">
+              <div>
+                <p class="screen-tag">문서</p>
+                <h2>사진 찍으면 바로 이해</h2>
+              </div>
+              <button class="ghost-button" data-go-tab="results">결과</button>
+            </header>
+
+            <section class="surface-card">
+              <div class="card-head">
+                <h3>문서 업로드</h3>
+                <span id="document-file-status">업로드된 파일이 없어요</span>
+              </div>
+              <label class="upload-zone" for="document-file-v2">
+                <input id="document-file-v2" type="file" accept="image/*,.pdf">
+                <strong>문서 사진을 올리거나 선택하세요</strong>
+                <p>학교, 병원, 출입국, 주민센터 문서를 시연할 수 있습니다.</p>
+              </label>
+            </section>
+
+            <section class="surface-card compact-card">
+              <div class="card-head">
+                <h3>문서 종류</h3>
+                <span id="selected-document-text">학교 문서</span>
+              </div>
+              <div class="chip-row" id="document-chip-row">
+                <button class="chip-button is-selected" data-document="school">학교</button>
+                <button class="chip-button" data-document="hospital">병원</button>
+                <button class="chip-button" data-document="immigration">출입국</button>
+                <button class="chip-button" data-document="community">주민센터</button>
+              </div>
+              <div class="action-row">
+                <button class="primary-button accent-button" id="document-analyze-button">문서 해석 시작</button>
+              </div>
+            </section>
+
+            <section class="surface-card">
+              <div class="card-head">
+                <h3>원문 요약</h3>
+                <span>핵심만 보기</span>
+              </div>
+              <p class="body-copy" id="document-summary"></p>
+            </section>
+
+            <section class="surface-card">
+              <div class="card-head">
+                <h3>쉬운 말 설명</h3>
+                <span>쉽게 이해하기</span>
+              </div>
+              <p class="body-copy" id="document-simple"></p>
+            </section>
+
+            <section class="surface-card">
+              <div class="card-head">
+                <h3>해야 할 일</h3>
+                <span>기한·제출·준비물</span>
+              </div>
+              <ul class="ordered-list" id="document-action-list"></ul>
+            </section>
+          </section>
+
+          <section class="tab-screen" data-tab-screen="emergency">
+            <header class="screen-header">
+              <div>
+                <p class="screen-tag emergency-tag">긴급</p>
+                <h2>지금 바로 도움받기</h2>
+              </div>
+              <button class="danger-button" id="privacy-mode-button">빠른 종료</button>
+            </header>
+
+            <section class="surface-card emergency-panel">
+              <div class="card-head">
+                <h3>즉시 연결</h3>
+                <span>검색보다 연결</span>
+              </div>
+              <div class="emergency-grid" id="emergency-grid">
+                <a class="emergency-action primary-emergency" href="tel:112">긴급 전화</a>
+                <button class="emergency-action">다국어 상담</button>
+                <button class="emergency-action">법률 지원</button>
+                <button class="emergency-action">노동 상담</button>
+                <button class="emergency-action">응급실 찾기</button>
+                <button class="emergency-action">보호기관 찾기</button>
+              </div>
+            </section>
+
+            <section class="surface-card">
+              <div class="card-head">
+                <h3>지금 보여줄 문장</h3>
+                <span>터치하면 복사</span>
+              </div>
+              <div class="phrase-list" id="phrase-list">
+                <button class="phrase-card">통역이 필요합니다.</button>
+                <button class="phrase-card">도움이 필요합니다.</button>
+                <button class="phrase-card">임금을 받지 못했습니다.</button>
+                <button class="phrase-card">지금 위험한 상황입니다.</button>
+              </div>
+            </section>
+
+            <section class="surface-card compact-card">
+              <div class="card-head">
+                <h3>빠른 기능</h3>
+                <span>즉시 공유</span>
+              </div>
+              <div class="chip-row">
+                <button class="chip-button utility-button">최근 위치 공유</button>
+                <button class="chip-button utility-button">즐겨찾기 기관</button>
+              </div>
+            </section>
+          </section>
+
+          <div class="overlay-screen" id="splash-overlay">
+            <div class="overlay-card splash-card">
+              <p class="eyebrow">BridgeHelp</p>
+              <h2>문제를 말하면<br>도움이 보입니다</h2>
+              <p>정착, 노동, 교육, 건강, 긴급 상황을 한 흐름으로 연결합니다.</p>
+              <button class="ghost-button light-button" id="splash-skip-button">건너뛰기</button>
+            </div>
+          </div>
+
+          <div class="overlay-screen is-hidden" id="onboarding-overlay">
+            <div class="overlay-card onboarding-card">
+              <div class="card-head onboarding-head">
+                <div>
+                  <p class="eyebrow">Onboarding</p>
+                  <h2>앱이 도와주는 3가지</h2>
+                </div>
+                <button class="ghost-button" id="onboarding-skip-button">닫기</button>
+              </div>
+              <div class="onboarding-list" id="onboarding-list"></div>
+              <button class="primary-button" id="onboarding-start-button">바로 시작하기</button>
+            </div>
+          </div>
+
+          <div class="overlay-screen is-hidden" id="loading-overlay">
+            <div class="overlay-card loading-card">
+              <div class="loading-spinner"></div>
+              <p class="eyebrow">AI Processing</p>
+              <h2 id="loading-title">도움을 정리하고 있어요</h2>
+              <p id="loading-description">필요한 행동과 연결 정보를 순서대로 준비 중입니다.</p>
+            </div>
+          </div>
+
+          <div class="overlay-screen is-hidden" id="privacy-overlay">
+            <div class="overlay-card privacy-card">
+              <p class="eyebrow">Privacy Mode</p>
+              <h2>일반 화면으로 전환되었습니다.</h2>
+              <p>필요하면 브라우저를 닫거나 다른 화면으로 넘어가세요.</p>
+              <button class="primary-button" id="privacy-return-button">앱으로 돌아가기</button>
+            </div>
+          </div>
+
+          <div class="sheet-backdrop is-hidden" id="sheet-backdrop"></div>
+          <aside class="bottom-sheet is-hidden" id="bottom-sheet" aria-label="기관 액션 상세">
+            <div class="sheet-handle"></div>
+            <div class="sheet-head">
+              <div>
+                <p class="screen-tag">연결 정보</p>
+                <h3 id="sheet-title"></h3>
+              </div>
+              <button class="ghost-button" id="sheet-close-button">닫기</button>
+            </div>
+            <p class="body-copy" id="sheet-description"></p>
+            <div class="sheet-detail-list" id="sheet-detail-list"></div>
+            <button class="primary-button" id="sheet-confirm-button">확인</button>
+          </aside>
+        </div>
+
+        <nav class="bottom-nav" aria-label="앱 하단 탭">
+          <button class="nav-button is-active" data-go-tab="home">홈</button>
+          <button class="nav-button" data-go-tab="results">결과</button>
+          <button class="nav-button" data-go-tab="document">문서</button>
+          <button class="nav-button nav-button-emergency" data-go-tab="emergency">긴급</button>
+        </nav>
+      </div>
+    </section>
+  </main>
+
+  <div class="app-toast" id="app-toast" aria-live="polite"></div>
+
+  <script src="mobile-app-v2.js"></script>
+</body>
+</html>

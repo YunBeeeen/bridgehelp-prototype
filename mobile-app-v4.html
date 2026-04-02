@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BridgeHelp Mobile V4</title>
+  <link rel="stylesheet" href="mobile-app-v4.css">
+</head>
+<body>
+  <div class="ambient ambient-orange"></div>
+  <div class="ambient ambient-teal"></div>
+
+  <main class="layout">
+    <aside class="side-panel">
+      <p class="eyebrow" id="side-eyebrow"></p>
+      <h1 id="side-title"></h1>
+      <p class="side-copy" id="side-copy"></p>
+      <div class="side-points" id="side-points"></div>
+      <section class="qr-card" id="qr-card">
+        <div class="qr-card-head">
+          <h2 id="qr-title"></h2>
+          <p id="qr-copy"></p>
+        </div>
+        <div class="qr-box" id="qr-code" aria-live="polite"></div>
+        <p class="qr-url" id="qr-url"></p>
+      </section>
+      <div class="side-links">
+        <a class="side-link" href="mobile-app-v3.html" id="link-v3"></a>
+        <a class="side-link" href="mobile-app.html" id="link-mobile"></a>
+      </div>
+    </aside>
+
+    <section class="phone-wrap" aria-label="BridgeHelp 모바일 V4">
+      <div class="phone-shell">
+        <div class="status-bar">
+          <span>BridgeHelp</span>
+          <span>09:41</span>
+          <span>100%</span>
+        </div>
+
+        <div class="app-surface">
+          <section class="screen active" data-screen="home">
+            <header class="header">
+              <div>
+                <p class="screen-label" id="home-label"></p>
+                <h2 id="home-title"></h2>
+              </div>
+              <button class="ghost-button" data-tab="emergency" id="home-emergency-button"></button>
+            </header>
+
+            <section class="hero-card">
+              <strong id="home-hero"></strong>
+            </section>
+
+            <section class="card compact">
+              <div class="card-head">
+                <h3 id="language-title"></h3>
+                <span id="language-current"></span>
+              </div>
+              <div class="chip-row" id="language-row"></div>
+            </section>
+
+            <section class="card">
+              <div class="card-head">
+                <h3 id="scenario-title"></h3>
+                <span id="scenario-current"></span>
+              </div>
+              <div class="category-grid" id="scenario-grid"></div>
+            </section>
+
+            <section class="card">
+              <div class="card-head">
+                <h3 id="question-title"></h3>
+                <span id="question-subtitle"></span>
+              </div>
+              <textarea id="question-input-v4" rows="3"></textarea>
+              <div class="chip-row" id="sample-row"></div>
+              <button class="primary-button" id="question-submit"></button>
+            </section>
+          </section>
+
+          <section class="screen" data-screen="results">
+            <header class="header">
+              <div>
+                <p class="screen-label" id="results-label"></p>
+                <h2 id="results-title"></h2>
+              </div>
+              <button class="ghost-button" data-tab="home" id="results-edit-button"></button>
+            </header>
+
+            <section class="summary-card">
+              <p class="summary-badge" id="results-badge"></p>
+              <h3 id="results-summary"></h3>
+            </section>
+
+            <section class="card">
+              <div class="card-head">
+                <h3 id="actions-title"></h3>
+                <span id="actions-subtitle"></span>
+              </div>
+              <ul class="step-list" id="actions-list"></ul>
+            </section>
+
+            <section class="card">
+              <div class="card-head">
+                <h3 id="contacts-title"></h3>
+                <span id="contacts-subtitle"></span>
+              </div>
+              <div class="contact-stack" id="contact-stack"></div>
+            </section>
+
+            <section class="card compact">
+              <div class="card-head">
+                <h3 id="notes-title"></h3>
+                <span id="notes-subtitle"></span>
+              </div>
+              <div class="tag-list" id="notes-list"></div>
+            </section>
+          </section>
+
+          <section class="screen" data-screen="document">
+            <header class="header">
+              <div>
+                <p class="screen-label" id="document-label"></p>
+                <h2 id="document-title"></h2>
+              </div>
+              <button class="ghost-button" data-tab="results" id="document-back-button"></button>
+            </header>
+
+            <section class="card compact">
+              <div class="card-head">
+                <h3 id="document-kind-title"></h3>
+                <span id="document-current"></span>
+              </div>
+              <div class="chip-row" id="document-row"></div>
+            </section>
+
+            <section class="card compact">
+              <div class="card-head">
+                <h3 id="upload-title"></h3>
+                <span id="upload-status"></span>
+              </div>
+              <label class="upload-box" for="document-file-v4">
+                <input id="document-file-v4" type="file" accept="image/*,.pdf">
+                <strong id="upload-button-label"></strong>
+              </label>
+              <button class="primary-button secondary-tone" id="document-submit"></button>
+            </section>
+
+            <section class="card compact">
+              <div class="mini-block">
+                <span class="mini-title" id="doc-summary-title"></span>
+                <p id="doc-summary"></p>
+              </div>
+              <div class="mini-block">
+                <span class="mini-title" id="doc-simple-title"></span>
+                <p id="doc-simple"></p>
+              </div>
+              <div class="mini-block">
+                <span class="mini-title" id="doc-actions-title"></span>
+                <ul class="step-list compact-steps" id="doc-actions"></ul>
+              </div>
+            </section>
+          </section>
+
+          <section class="screen" data-screen="emergency">
+            <header class="header">
+              <div>
+                <p class="screen-label danger-text" id="emergency-label"></p>
+                <h2 id="emergency-title"></h2>
+              </div>
+              <button class="danger-button" id="privacy-button"></button>
+            </header>
+
+            <section class="card emergency-card">
+              <div class="call-grid" id="emergency-grid"></div>
+            </section>
+
+            <section class="card compact">
+              <div class="card-head">
+                <h3 id="phrase-title"></h3>
+                <span id="phrase-subtitle"></span>
+              </div>
+              <div class="phrase-grid" id="phrase-grid"></div>
+            </section>
+          </section>
+
+          <div class="overlay" id="splash-overlay">
+            <div class="overlay-card splash-card">
+              <p class="eyebrow" id="splash-eyebrow"></p>
+              <h2 id="splash-title"></h2>
+              <button class="ghost-button light" id="splash-skip"></button>
+            </div>
+          </div>
+
+          <div class="overlay hidden" id="onboarding-overlay">
+            <div class="overlay-card">
+              <p class="eyebrow" id="onboarding-eyebrow"></p>
+              <h2 id="onboarding-title"></h2>
+              <div class="onboarding-list" id="onboarding-list"></div>
+              <button class="primary-button" id="onboarding-start"></button>
+            </div>
+          </div>
+
+          <div class="overlay hidden" id="loading-overlay">
+            <div class="overlay-card loading-card">
+              <div class="spinner"></div>
+              <h2 id="loading-title"></h2>
+              <p id="loading-description"></p>
+            </div>
+          </div>
+
+          <div class="overlay hidden" id="privacy-overlay">
+            <div class="overlay-card">
+              <p class="eyebrow" id="privacy-eyebrow"></p>
+              <h2 id="privacy-title"></h2>
+              <button class="primary-button" id="privacy-return"></button>
+            </div>
+          </div>
+
+          <div class="overlay hidden" id="call-overlay">
+            <div class="overlay-card call-modal">
+              <div class="call-modal-top">
+                <p class="eyebrow" id="call-modal-label"></p>
+                <h2 id="call-modal-number"></h2>
+                <p class="call-modal-name" id="call-modal-name"></p>
+              </div>
+              <div class="call-modal-actions">
+                <button class="call-option primary-option" id="call-confirm"></button>
+                <button class="call-option" id="call-save"></button>
+                <button class="call-option cancel-option" id="call-cancel"></button>
+              </div>
+            </div>
+          </div>
+
+          <div class="overlay hidden" id="info-overlay">
+            <div class="overlay-card info-modal">
+              <h2 id="info-title"></h2>
+              <p id="info-body"></p>
+              <button class="primary-button" id="info-close"></button>
+            </div>
+          </div>
+        </div>
+
+        <nav class="bottom-nav" aria-label="앱 하단 탭">
+          <button class="tab-button active" data-tab="home" id="tab-home"></button>
+          <button class="tab-button" data-tab="results" id="tab-results"></button>
+          <button class="tab-button" data-tab="document" id="tab-document"></button>
+          <button class="tab-button danger-tab" data-tab="emergency" id="tab-emergency"></button>
+        </nav>
+      </div>
+    </section>
+  </main>
+
+  <div class="toast" id="toast-v4" aria-live="polite"></div>
+
+  <script src="qrcode.js"></script>
+  <script src="mobile-app-v4-config.js"></script>
+  <script src="mobile-app-v4.js"></script>
+</body>
+</html>
