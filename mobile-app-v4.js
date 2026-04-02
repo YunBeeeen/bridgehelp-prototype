@@ -45,6 +45,12 @@ const languageGateUi = {
   copy: "\uC6D0\uD558\uB294 \uC5B8\uC5B4\uB97C \uB204\uB974\uBA74 \uBC14\uB85C \uC2DC\uC791\uB429\uB2C8\uB2E4.\nTap a language to enter the app."
 };
 
+const brandIntroUi = {
+  eyebrow: "BridgeHelp",
+  title: "BridgeHelp",
+  copy: "MULTILINGUAL HELP, RIGHT AWAY"
+};
+
 const ui = {
   sideEyebrow: L("9:16 App Prototype V4", "9:16 App Prototype V4", "9:16 应用原型 V4"),
   sideTitle: L("BridgeHelp Call Flow", "BridgeHelp Call Flow", "BridgeHelp 通话流程"),
@@ -238,7 +244,7 @@ const phraseData = [
 
 const appState = {
   currentTab: "home",
-  bootState: "language",
+  bootState: "splash",
   selectedLanguage: "ko",
   selectedScenario: "work",
   selectedDocument: "school",
@@ -260,8 +266,9 @@ const elements = {
   resultsLabel: document.getElementById("results-label"), resultsTitle: document.getElementById("results-title"), resultsEditButton: document.getElementById("results-edit-button"), resultsBadge: document.getElementById("results-badge"), resultsSummary: document.getElementById("results-summary"), actionsTitle: document.getElementById("actions-title"), actionsSubtitle: document.getElementById("actions-subtitle"), actionsList: document.getElementById("actions-list"), contactsTitle: document.getElementById("contacts-title"), contactsSubtitle: document.getElementById("contacts-subtitle"), contactStack: document.getElementById("contact-stack"), notesTitle: document.getElementById("notes-title"), notesSubtitle: document.getElementById("notes-subtitle"), notesList: document.getElementById("notes-list"),
   documentLabel: document.getElementById("document-label"), documentTitle: document.getElementById("document-title"), documentBackButton: document.getElementById("document-back-button"), documentKindTitle: document.getElementById("document-kind-title"), documentCurrent: document.getElementById("document-current"), documentRow: document.getElementById("document-row"), uploadTitle: document.getElementById("upload-title"), uploadStatus: document.getElementById("upload-status"), uploadButtonLabel: document.getElementById("upload-button-label"), documentFile: document.getElementById("document-file-v4"), documentSubmit: document.getElementById("document-submit"), docSummaryTitle: document.getElementById("doc-summary-title"), docSummary: document.getElementById("doc-summary"), docSimpleTitle: document.getElementById("doc-simple-title"), docSimple: document.getElementById("doc-simple"), docActionsTitle: document.getElementById("doc-actions-title"), docActions: document.getElementById("doc-actions"),
   emergencyLabel: document.getElementById("emergency-label"), emergencyTitle: document.getElementById("emergency-title"), privacyButton: document.getElementById("privacy-button"), emergencyGrid: document.getElementById("emergency-grid"), phraseTitle: document.getElementById("phrase-title"), phraseSubtitle: document.getElementById("phrase-subtitle"), phraseGrid: document.getElementById("phrase-grid"),
-  languageOverlay: document.getElementById("language-overlay"), languageGateEyebrow: document.getElementById("language-gate-eyebrow"), languageGateTitle: document.getElementById("language-gate-title"), languageGateCopy: document.getElementById("language-gate-copy"), languageGateList: document.getElementById("language-gate-list"), loadingOverlay: document.getElementById("loading-overlay"), loadingTitle: document.getElementById("loading-title"), loadingDescription: document.getElementById("loading-description"), privacyOverlay: document.getElementById("privacy-overlay"), privacyEyebrow: document.getElementById("privacy-eyebrow"), privacyTitle: document.getElementById("privacy-title"), privacyReturn: document.getElementById("privacy-return"), callOverlay: document.getElementById("call-overlay"), callModalLabel: document.getElementById("call-modal-label"), callModalNumber: document.getElementById("call-modal-number"), callModalName: document.getElementById("call-modal-name"), callConfirm: document.getElementById("call-confirm"), callSave: document.getElementById("call-save"), callCancel: document.getElementById("call-cancel"), infoOverlay: document.getElementById("info-overlay"), infoTitle: document.getElementById("info-title"), infoBody: document.getElementById("info-body"), infoClose: document.getElementById("info-close"), toast: document.getElementById("toast-v4")
+  brandOverlay: document.getElementById("brand-overlay"), brandIntroEyebrow: document.getElementById("brand-intro-eyebrow"), brandIntroTitle: document.getElementById("brand-intro-title"), brandIntroCopy: document.getElementById("brand-intro-copy"), languageOverlay: document.getElementById("language-overlay"), languageGateEyebrow: document.getElementById("language-gate-eyebrow"), languageGateTitle: document.getElementById("language-gate-title"), languageGateCopy: document.getElementById("language-gate-copy"), languageGateList: document.getElementById("language-gate-list"), loadingOverlay: document.getElementById("loading-overlay"), loadingTitle: document.getElementById("loading-title"), loadingDescription: document.getElementById("loading-description"), privacyOverlay: document.getElementById("privacy-overlay"), privacyEyebrow: document.getElementById("privacy-eyebrow"), privacyTitle: document.getElementById("privacy-title"), privacyReturn: document.getElementById("privacy-return"), callOverlay: document.getElementById("call-overlay"), callModalLabel: document.getElementById("call-modal-label"), callModalNumber: document.getElementById("call-modal-number"), callModalName: document.getElementById("call-modal-name"), callConfirm: document.getElementById("call-confirm"), callSave: document.getElementById("call-save"), callCancel: document.getElementById("call-cancel"), infoOverlay: document.getElementById("info-overlay"), infoTitle: document.getElementById("info-title"), infoBody: document.getElementById("info-body"), infoClose: document.getElementById("info-close"), toast: document.getElementById("toast-v4")
 };
+let launchTimer = null;
 let analysisTimer = null;
 let toastTimer = null;
 
@@ -433,6 +440,9 @@ function renderEmergency() {
   elements.phraseGrid.innerHTML = phraseData.map((item, index) => `<button class="phrase-button" data-phrase-index="${index}">${t(item)}</button>`).join("");
 }
 function renderOverlays() {
+  elements.brandIntroEyebrow.textContent = brandIntroUi.eyebrow;
+  elements.brandIntroTitle.textContent = brandIntroUi.title;
+  elements.brandIntroCopy.textContent = brandIntroUi.copy;
   elements.languageGateEyebrow.textContent = languageGateUi.eyebrow;
   elements.languageGateTitle.textContent = languageGateUi.title;
   elements.languageGateTitle.style.whiteSpace = "pre-line";
@@ -460,6 +470,7 @@ function renderOverlays() {
     elements.infoBody.textContent = appState.activeSheet.body;
     elements.infoBody.style.whiteSpace = "pre-line";
   }
+  toggleHidden(elements.brandOverlay, appState.bootState !== "splash");
   toggleHidden(elements.languageOverlay, appState.bootState !== "language");
   toggleHidden(elements.loadingOverlay, appState.analysisState === "idle");
   toggleHidden(elements.privacyOverlay, !appState.isPrivacyMode);
@@ -476,6 +487,13 @@ function render() {
   renderDocument();
   renderEmergency();
   renderOverlays();
+}
+
+function startLaunchTimer() {
+  clearTimeout(launchTimer);
+  launchTimer = window.setTimeout(() => {
+    if (appState.bootState === "splash") setState({ bootState: "language" });
+  }, 1800);
 }
 
 function runQuestionFlow() {
@@ -556,4 +574,5 @@ elements.callCancel.addEventListener("click", () => setState({ activeSheet: null
 elements.infoClose.addEventListener("click", () => setState({ activeSheet: null }));
 
 render();
+startLaunchTimer();
 
