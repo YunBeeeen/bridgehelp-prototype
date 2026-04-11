@@ -1,0 +1,26 @@
+﻿@import url('mobile-app-v6-common.css');
+
+body.theme-v63 {
+  --v6-bg: linear-gradient(160deg, #f7efe8 0%, #f4e5de 40%, #edf4ef 100%);
+  --v6-frame: #23383b;
+  --v6-screen: #fff8f4;
+  --v6-green: #4a9b72;
+}
+
+.theme-v63 .v6-hero {
+  background: linear-gradient(145deg, rgba(255, 248, 244, 0.98), rgba(245, 230, 224, 0.92));
+}
+
+.theme-v63 .v6-community-band,
+.theme-v63 .v6-culture-card,
+.theme-v63 .v6-question-card {
+  border-radius: 30px;
+}
+
+.theme-v63 .v6-culture-card {
+  background: linear-gradient(160deg, rgba(255, 255, 255, 0.96), rgba(250, 240, 233, 0.88));
+}
+
+.theme-v63 .v6-home-community .v6-card {
+  box-shadow: 0 16px 36px rgba(90, 62, 42, 0.08);
+}

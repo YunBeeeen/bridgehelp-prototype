@@ -1,0 +1,42 @@
+﻿@import url('mobile-app-v6-common.css');
+
+body.theme-v62 {
+  --v6-bg: linear-gradient(160deg, #fbefe3 0%, #f6e6d5 44%, #e8f0ed 100%);
+  --v6-frame: #101a1c;
+  --v6-screen: #fff7ee;
+  --v6-orange: #e07518;
+}
+
+.theme-v62 .v6-hero {
+  background: linear-gradient(145deg, rgba(255, 246, 236, 0.96), rgba(255, 224, 192, 0.8));
+}
+
+.theme-v62 .v6-step-card,
+.theme-v62 .v6-map-preview-card,
+.theme-v62 .v6-results-action .v6-card {
+  position: relative;
+  overflow: hidden;
+}
+
+.theme-v62 .v6-step-card::before,
+.theme-v62 .v6-map-preview-card::before,
+.theme-v62 .v6-results-action .v6-card::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 18px;
+  bottom: 18px;
+  width: 5px;
+  border-radius: 999px;
+  background: linear-gradient(180deg, var(--v6-orange), var(--v6-teal));
+}
+
+.theme-v62 .v6-card,
+.theme-v62 .v6-step-card,
+.theme-v62 .v6-question-card {
+  border-radius: 26px;
+}
+
+.theme-v62 .v6-sticky-cta {
+  padding-top: 1rem;
+}

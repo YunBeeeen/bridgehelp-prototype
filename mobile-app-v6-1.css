@@ -1,0 +1,27 @@
+﻿@import url('mobile-app-v6-common.css');
+
+body.theme-v61 {
+  --v6-bg: linear-gradient(165deg, #f4efe7 0%, #ece7e1 56%, #eef3ef 100%);
+  --v6-frame: #173033;
+  --v6-screen: #faf6ef;
+}
+
+.theme-v61 .v6-card,
+.theme-v61 .v6-summary-card,
+.theme-v61 .v6-question-card,
+.theme-v61 .v6-step-card {
+  border-radius: 24px;
+}
+
+.theme-v61 .v6-hero {
+  background: linear-gradient(145deg, rgba(255, 255, 255, 0.96), rgba(233, 242, 244, 0.9));
+}
+
+.theme-v61 .v6-pictogram-button,
+.theme-v61 .v6-quick-tile {
+  min-height: 108px;
+}
+
+.theme-v61 .v6-screen-title {
+  font-size: 1.85rem;
+}

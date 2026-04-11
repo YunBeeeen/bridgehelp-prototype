@@ -1,0 +1,28 @@
+﻿@import url('mobile-app-v6-common.css');
+
+body.theme-v65 {
+  --v6-bg: linear-gradient(165deg, #eef1eb 0%, #e4ebe5 34%, #dfeceb 100%);
+  --v6-frame: #122427;
+  --v6-screen: #f6fbfa;
+  --v6-teal: #0a6f67;
+}
+
+.theme-v65 .v6-map-preview-card,
+.theme-v65 .v6-map-stage {
+  background: linear-gradient(145deg, rgba(246, 255, 253, 0.96), rgba(227, 242, 240, 0.94));
+}
+
+.theme-v65 .v6-hero-map,
+.theme-v65 .v6-map-canvas {
+  min-height: 250px;
+}
+
+.theme-v65 .v6-agency-card,
+.theme-v65 .v6-map-preview-card {
+  border-radius: 28px;
+}
+
+.theme-v65 .v6-results-map .v6-card,
+.theme-v65 .v6-document-map .v6-card {
+  box-shadow: 0 18px 42px rgba(10, 58, 53, 0.09);
+}

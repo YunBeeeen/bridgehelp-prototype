@@ -1,0 +1,30 @@
+﻿@import url('mobile-app-v6-common.css');
+
+body.theme-v64 {
+  --v6-bg: linear-gradient(160deg, #f4ecdf 0%, #efe6d7 44%, #e6f0ef 100%);
+  --v6-frame: #11292b;
+  --v6-screen: #fbf6ee;
+  --v6-blue: #2559c7;
+}
+
+.theme-v64 .v6-feed-stack {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.9rem;
+}
+
+.theme-v64 .v6-feed-card {
+  min-height: auto;
+}
+
+.theme-v64 .v6-home-stories .v6-feed-card {
+  padding: 1.15rem;
+}
+
+.theme-v64 .v6-hero {
+  background: linear-gradient(145deg, rgba(255, 255, 255, 0.98), rgba(235, 243, 248, 0.9));
+}
+
+.theme-v64 .v6-screen-title {
+  font-size: 1.95rem;
+}
