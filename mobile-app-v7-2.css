@@ -1,0 +1,15 @@
+﻿body.theme-v72 .v7-scroll-screen {
+  background: linear-gradient(180deg, rgba(255,255,255,0.3), transparent 20rem);
+}
+
+body.theme-v72 .v7-mic-hero {
+  background: linear-gradient(180deg, rgba(255,255,255,0.98), rgba(236,243,255,0.92));
+  border-radius: 30px;
+  border: 1px solid rgba(33, 76, 147, 0.1);
+  box-shadow: 0 18px 44px rgba(33, 76, 147, 0.12);
+}
+
+body.theme-v72 .v7-action-tile,
+body.theme-v72 .v7-article-card {
+  background: rgba(255, 255, 255, 0.97);
+}

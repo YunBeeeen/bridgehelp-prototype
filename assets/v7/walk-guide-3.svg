@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 400" role="img" aria-label="동행 선배 3">
+  <rect width="320" height="400" rx="28" fill="#f8eff6"/>
+  <circle cx="160" cy="150" r="72" fill="#ffd8c6"/>
+  <path d="M98 117c13-38 42-61 70-61 33 0 66 28 78 72-28-10-46-12-84-12-23 0-42 0-64 1z" fill="#7b4f73"/>
+  <path d="M84 336c6-70 42-108 76-108 42 0 77 39 80 108z" fill="#c05c7f"/>
+  <rect x="94" y="248" width="132" height="82" rx="20" fill="#fff"/>
+  <circle cx="134" cy="149" r="7" fill="#273141"/>
+  <circle cx="187" cy="149" r="7" fill="#273141"/>
+  <path d="M138 186c12 11 33 11 45 0" stroke="#aa5c53" stroke-width="7" fill="none" stroke-linecap="round"/>
+  <rect x="113" y="267" width="94" height="18" rx="9" fill="#f4d7e5"/>
+  <rect x="113" y="294" width="72" height="14" rx="7" fill="#efd0df"/>
+</svg>

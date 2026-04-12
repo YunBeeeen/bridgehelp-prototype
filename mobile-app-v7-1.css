@@ -1,0 +1,15 @@
+﻿body.theme-v71 .v7-mic-hero.compact {
+  grid-template-columns: 96px minmax(0, 1fr);
+  align-items: center;
+  justify-items: start;
+  text-align: left;
+}
+
+body.theme-v71 .v7-mic-hero.compact .v7-mic-ring {
+  width: 5.8rem;
+  height: 5.8rem;
+}
+
+body.theme-v71 .v7-summary-card {
+  background: linear-gradient(180deg, rgba(255,255,255,0.98), rgba(240,248,245,0.94));
+}

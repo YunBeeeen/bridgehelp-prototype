@@ -1,0 +1,29 @@
+﻿<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 320 220' fill='none'>
+  <rect width='320' height='220' rx='28' fill='#F7FBFF'/>
+  <rect x='10' y='10' width='300' height='200' rx='24' fill='url(#bg)' stroke='#D4E3F8'/>
+  <defs>
+    <linearGradient id='bg' x1='24' y1='20' x2='296' y2='196' gradientUnits='userSpaceOnUse'>
+      <stop stop-color='#FFFFFF'/>
+      <stop offset='1' stop-color='#EAF2FF'/>
+    </linearGradient>
+    <linearGradient id='accent' x1='58' y1='40' x2='250' y2='178' gradientUnits='userSpaceOnUse'>
+      <stop stop-color='#5C84D6'/>
+      <stop offset='1' stop-color='#2E5AA9'/>
+    </linearGradient>
+    <linearGradient id='soft' x1='40' y1='30' x2='260' y2='190' gradientUnits='userSpaceOnUse'>
+      <stop stop-color='#F7C77B'/>
+      <stop offset='1' stop-color='#F1A960'/>
+    </linearGradient>
+    <linearGradient id='mint' x1='70' y1='50' x2='250' y2='180' gradientUnits='userSpaceOnUse'>
+      <stop stop-color='#89D7C5'/>
+      <stop offset='1' stop-color='#4FAE96'/>
+    </linearGradient>
+  </defs>
+  <rect x='82' y='94' width='156' height='92' rx='18' fill='white' stroke='#C7D8F1'/>
+<path d='M112 96c0-22 17-40 48-40s48 18 48 40' stroke='#2E5AA9' stroke-width='10' stroke-linecap='round'/>
+<rect x='102' y='110' width='116' height='20' rx='10' fill='url(#mint)' opacity='0.45'/>
+<rect x='120' y='136' width='80' height='12' rx='6' fill='#B9CDEC'/>
+<rect x='120' y='156' width='56' height='12' rx='6' fill='#B9CDEC'/>
+<circle cx='212' cy='74' r='24' fill='url(#soft)' opacity='0.9'/>
+<path d='M212 60v28M198 74h28' stroke='white' stroke-width='8' stroke-linecap='round'/>
+</svg>

@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 96 96" role="img" aria-label="생활">
+  <rect width="96" height="96" rx="28" fill="#eef7f0"/>
+  <path d="M19 46l29-22 29 22v24a8 8 0 0 1-8 8H27a8 8 0 0 1-8-8z" fill="#2f935c"/>
+  <rect x="41" y="52" width="14" height="26" rx="4" fill="#e8f7eb"/>
+  <rect x="30" y="52" width="8" height="10" rx="2" fill="#d8f0dd"/>
+  <rect x="58" y="52" width="8" height="10" rx="2" fill="#d8f0dd"/>
+</svg>
